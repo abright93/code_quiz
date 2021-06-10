@@ -1,4 +1,4 @@
-//arrray of the quiz questions, avaialble choices, and correct answers     
+//arrray of the quiz questions, choices, and correct answers     
 var questions = [{
   title: "Commonly used data types do NOT include _____?",
   choices: ["Alerts", "Strings", "Booleans", "Numbers"],
@@ -26,13 +26,13 @@ var questions = [{
 }
 ]
 
-//setting the numerical variables for the functions.. scores and timers.. 
+//variables for functions, score and timer 
 var score = 0;
 var currentQuestion = -1;
 var timeLeft = 0;
 var timer;
 
-//starts the countdown timer once user clicks the 'start' button
+//'start' button
 function start() {
 
 timeLeft = 75;
@@ -41,7 +41,7 @@ document.getElementById("timeLeft").innerHTML = timeLeft;
 timer = setInterval(function() {
   timeLeft--;
   document.getElementById("timeLeft").innerHTML = timeLeft;
-  //proceed to end the game function when timer is below 0 at any time
+  //ends game function when timer runs out
   if (timeLeft <= 0) {
       clearInterval(timer);
       endGame(); 
@@ -51,7 +51,7 @@ timer = setInterval(function() {
 next();
 }
 
-//stop the timer to end the game 
+//stops the timer to end the game 
 function endGame() {
 clearInterval(timer);
 
@@ -65,7 +65,7 @@ var quizContent = `
 document.getElementById("quizBody").innerHTML = quizContent;
 }
 
-//store the scores on local storage
+//stores the scores 
 function setScore() {
 localStorage.setItem("highscore", score);
 localStorage.setItem("highscoreName",  document.getElementById('name').value);
@@ -85,7 +85,7 @@ var quizContent = `
 document.getElementById("quizBody").innerHTML = quizContent;
 }
 
-//clears the score name and value in the local storage if the user selects 'clear score'
+//clears score
 function clearScore() {
 localStorage.setItem("highscore", "");
 localStorage.setItem("highscoreName",  "");
@@ -93,7 +93,7 @@ localStorage.setItem("highscoreName",  "");
 resetGame();
 }
 
-//reset the game 
+//resets the game 
 function resetGame() {
 clearInterval(timer);
 score = 0;
